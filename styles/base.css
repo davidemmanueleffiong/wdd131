@@ -1,0 +1,165 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
+body{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #222;
+}
+
+
+header {
+    background-color: #282121;
+    color: white;
+    text-align: center;
+    
+}
+
+#course-title{
+    display: block;
+    padding: 12px 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.nav-list {
+    list-style-type: none;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #0f0101;
+}
+
+header nav a {
+    text-decoration: none;
+    color: rgb(246, 234, 234);
+    font-size: 0.95rem;
+}
+
+header nav a:hover{
+    background-color: #410b0b;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 24px;
+    font-family: Georgia, serif;
+    
+}
+
+.class-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    align-items: stretch;
+}
+
+.card{
+    border: 1px solid #c8d8e8;
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.card h2{
+    background-color: #282121;
+    color: white;
+    padding: 8px 12px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 0;
+    text-align: center;
+}
+
+.card-body{
+    padding: 15px;
+    background-color: white;
+    flex: 1;
+}
+
+.about-top{
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    margin-bottom: 12px;        
+}
+
+.about-top p{
+    flex: 1;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+.about-top img, .flag-side img{
+    width: 110px;
+    height: auto;
+    flex-shrink: 0;
+    border-radius: 3px;
+}
+
+
+.flag-caption{
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: #555;
+    text-align: center;
+}
+
+
+.section-title{
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 12px;
+    margin-top: 12px;
+    text-align: center;
+    border-bottom: 0 1px solid #282121;
+}
+
+.country-section{
+    display: flex;
+    gap: 15px;
+    padding: 0 20px;
+    text-align: justify;
+}
+
+.card-body p{
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.resource-list {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    gap: 6px;
+    justify-content: center;  
+    position: relative;
+    left: 15px;   
+    top: 50px; 
+    
+}
+
+.resource-list a {
+    font-size: 0.95rem;
+}
+footer{
+    background-color: #282121;
+    color: white;
+    padding: 16px;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    text-align: center;
+}
