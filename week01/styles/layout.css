@@ -53,15 +53,14 @@ nav a {
 main {
     background-color: #ada4a4;
     color: rgb(20, 20, 20);
-    padding: 0 rem;
-    margin: 2rem auto;
-    max-width: 1200px;
-
+    padding: 0 1.5rem;
+    margin:  3rem auto;
 }
 
 
 aside{
-    background-color: white
+    background-color: white;
+    margin: 3rem auto;
 }
 
 footer {
