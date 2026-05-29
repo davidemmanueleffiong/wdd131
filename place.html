@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nigeria</title>
+    <meta name="description" content="Wdd131 - Dynamic Web Fundamentals - David Emmanuel. This course covers the basics of JavaScript, data types, functions, and DOM manipulation....">
+    <meta name="author" content="David Emmanuel">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="scripts/place.js" defer></script>
+    <link rel="stylesheet" href="styles/place.css">
+</head>
+<body>
+    <header>
+        <h1>Nigeria</h1>
+    </header>
+    <main>
+        <div class="hero">
+        <picture>
+            <source srcset="images/place-large.webp" media="(min-width: 1000px)">
+            <source srcset="images/place-medium.webp" media="(min-width: 500px)">
+            <img src="images/place-small.webp" alt="Nigeria and location" width="500" height="200">
+        </picture>
+        </div>
+        
+          <!-- DATA SECTION -->
+        <section class="info-block" id="data">
+            <h2>Data</h2>
+            <table class="info-table">
+                <tr><td class="lbl">Area:</td><td class="val">587,041 sq km</td></tr>
+                <tr><td class="lbl">Population:</td><td class="val">27,691,038</td></tr>
+                <tr><td class="lbl">Capital:</td><td class="val">Antananarivo</td></tr>
+                <tr><td class="lbl">Languages:</td><td class="val">Malagasy, French</td></tr>
+                <tr><td class="lbl">Currency:</td><td class="val">Malagasy Ariary</td></tr>
+                <tr><td class="lbl">Time Zone:</td><td class="val">UTC+3</td></tr>
+                <tr><td class="lbl">Calling Code:</td><td class="val">+261</td></tr>
+                <tr><td class="lbl">Internet TLD:</td><td class="val">.mg</td></tr>
+            </table>
+        </section>
+        
+        <!-- WEATHER SECTION -->
+        <section class="info-block" id="weather">
+            <h2>Weather</h2>
+            <div class="weather-icon">☀️</div>
+            <table class="info-table">
+                <tr><td class="lbl">Temperature:</td><td class="val">32°C</td></tr>
+                <tr><td class="lbl">Conditions:</td><td class="val">Partly Cloudy</td></tr>
+                <tr><td class="lbl">Wind:</td><td class="val">13 km/h</td></tr>
+                <tr><td class="lbl">Humidity:</td><td class="val">68%</td></tr>
+            </table>
+        </section>
+        
+        <!-- FOOTER -->
+        <footer class="page-footer">
+            <p>©2026 · David Emmanuel ®</p>
+            <p id="last-modified">Last Modification: 00/00/0000 00:00:00</p>
+        </footer>
+    </main>
+</body>
+</html>
