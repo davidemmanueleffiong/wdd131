@@ -28,7 +28,6 @@ nav a:hover{
 
 nav ul{
     display: flex;
-    gap: 0.5rem 1rem;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -47,6 +46,7 @@ main{
     margin: 0 auto;
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
 }
 
 header,footer{
