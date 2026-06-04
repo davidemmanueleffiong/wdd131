@@ -112,6 +112,34 @@
       gap: 1rem;
       margin-top: 1rem;
     }
+
+    .swatch-block {
+      height: 80px;
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+
+    .swatch-block, #charcoal-swatch{
+      background-color: #2C2C2C;
+    }
+
+    .swatch-block, #deep-red-swatch{
+      background-color: #C0392B;
+    }
+
+    .swatch-block, #warm-orange-swatch{
+      background-color: #E67E22;
+    }
+
+    .swatch-block, #cream-swatch{
+      background-color: #FDF6EC;
+    }
+    .swatch-block, #white-swatch{
+      background-color: #FFFFFF;
+    }
+    .swatch-block, #warm-grey-swatch{
+      background-color: #7A6652;
+    }
+
     .swatch {
       border-radius: var(--radius);
       overflow: hidden;
@@ -158,6 +186,14 @@
       letter-spacing: .07em;
       color: var(--color-muted);
       margin-bottom: .75rem;
+    }
+
+    .wf-block, #main-content{
+      flex: 2;
+    }
+
+    .wf-block, #sidebar{
+      flex: 1;
     }
     .wf-block {
       background: var(--color-bg);
