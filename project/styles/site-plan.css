@@ -83,16 +83,18 @@
       padding: 2rem 2.25rem;
       box-shadow: var(--shadow);
     }
-    section h2 {
+
+    .site-name h1{
       font-family: var(--font-display);
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       color: var(--color-primary);
       margin-bottom: 1rem;
-      padding-bottom: .6rem;
-      border-bottom: 3px solid var(--color-secondary);
+      padding-bottom: .3rem;
+      border-bottom: 2px solid var(--color-secondary);
       display: inline-block;
     }
-    section h3 {
+
+    .site-name h2{
       font-family: var(--font-body);
       font-weight: 500;
       color: var(--color-secondary);
@@ -101,9 +103,31 @@
       letter-spacing: .06em;
       margin: 1.2rem 0 .4rem;
     }
-    section p, section li { font-size: .97rem; color: var(--color-text); }
-    section ul { padding-left: 1.3rem; }
-    section ul li { margin-bottom: .4rem; }
+    .site-purpose h2, .site-name h1, .scenarios h2, .colors h2, .wireframes h2, .typography h2{
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      color: var(--color-primary);
+      margin-bottom: 1rem;
+      padding-bottom: .6rem;
+      border-bottom: 3px solid var(--color-secondary);
+      display: inline-block;
+    }
+    .wireframes h3 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      color: var(--color-primary);
+      margin-bottom: 1rem;
+      padding-bottom: .3rem;
+      border-bottom: 2px solid var(--color-secondary);
+      display: inline-block;
+    }
+    
+    .site-purpose p, .site-name p {
+      font-size: .97rem;
+      color: var(--color-text);
+    }
+    .site-name ul { padding-left: 1.3rem; }
+    .site-name ul li { margin-bottom: .4rem; }
  
     /* ── Color Schema Swatches ── */
     .swatch-grid {
