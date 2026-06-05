@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Review</title>
+    <meta name="description" content="This is a product review form for LagosBites, a food discovery blog focused on Lagos, Nigeria.">
+    <meta name="author" content="David Emmanuel">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/form.css">
+    <script src="scripts/form.js" defer></script>
+</head>
+
+<body>
+
+  <header class="wrapper">
+    <p class="label">Share Your Experience</p>
+    <h1>Product<br><span>Review.</span></h1>
+  </header>
+ 
+  <div class="card">
+    <form method="get" action="review.html">
+ 
+      <!-- Product Name -->
+      <div class="field">
+        <label for="product">Product Name <span class="req">*</span></label>
+        <div class="select-wrap">
+          <select id="product" name="product" required>
+            <option value="" disabled selected>Select a Product …</option>
+          </select>
+        </div>
+      </div>
+ 
+      <div class="divider"></div>
+ 
+      <!-- Overall Rating -->
+      <div class="field">
+        <label>Overall Rating <span class="req">*</span></label>
+        <div class="stars">
+          <input type="radio" id="star5" name="rating" value="5" required>
+          <label for="star5" title="5 stars">★</label>
+          <input type="radio" id="star4" name="rating" value="4">
+          <label for="star4" title="4 stars">★</label>
+          <input type="radio" id="star3" name="rating" value="3">
+          <label for="star3" title="3 stars">★</label>
+          <input type="radio" id="star2" name="rating" value="2">
+          <label for="star2" title="2 stars">★</label>
+          <input type="radio" id="star1" name="rating" value="1">
+          <label for="star1" title="1 star">★</label>
+        </div>
+      </div>
+ 
+      <div class="divider"></div>
+ 
+      <!-- Date of Installation -->
+      <div class="field">
+        <label for="installDate">Date of Installation <span class="req">*</span></label>
+        <input type="date" id="installDate" name="installDate" required>
+      </div>
+ 
+      <div class="divider"></div>
+ 
+      <!-- Useful Features -->
+      <div class="field">
+        <label>Useful Features <span class="req">*</span></label>
+        <div class="checkbox-grid">
+          <label class="checkbox-item">
+            <input type="checkbox" id="durability" name="features" value="Durability">
+            <span class="box"></span>
+            <span class="box-label">Durability</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" id="easeofuse" name="features" value="Ease of Use">
+            <span class="box"></span>
+            <span class="box-label">Ease of Use</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" id="performance" name="features" value="Performance">
+            <span class="box"></span>
+            <span class="box-label">Performance</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" id="design" name="features" value="Design">
+            <span class="box"></span>
+            <span class="box-label">Design</span>
+          </label>
+        </div>
+      </div>
+ 
+      <div class="divider"></div>
+ 
+      <!-- Written Review -->
+      <div class="field">
+        <label for="review">Written Review <span class="req">*</span></label>
+        <textarea id="review" name="review" placeholder="Tell us what you think…"></textarea>
+      </div>
+ 
+      <!-- User Name -->
+      <div class="field">
+        <label for="username">Your Name <span class="req">*</span></label>
+        <input type="text" id="username" name="username" placeholder="e.g. Alex M." required>
+      </div>
+ 
+      <input type="submit" class="btn" value="Post Review →">
+ 
+    </form>
+  </div>
+ 
+  <footer>
+    <p>&copy; <span id="currentYear"></span> David Emmanuel . Nigeria</p> 
+    <p id="lastModified"></p>
+  </footer>
+</body>
+</html>

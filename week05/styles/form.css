@@ -1,0 +1,248 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+    :root {
+      --bg: #0d0d0f;
+      --surface: #16161a;
+      --border: #2a2a35;
+      --accent: #c8ff00;
+      --accent2: #ff6b35;
+      --text: #f0ede8;
+      --muted: #7a7a8a;
+      --radius: 12px;
+    }
+ 
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 16px 80px;
+    }
+ 
+    /* Decorative background blobs */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -120px; left: -120px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(200,255,0,0.07) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -100px; right: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(255,107,53,0.07) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+ 
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 560px;
+    }
+ 
+    header {
+      margin-bottom: 36px;
+    }
+    header .label {
+      font-family: 'Syne', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    header h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 800;
+      line-height: 1.05;
+      color: var(--text);
+    }
+    header h1 span {
+      color: var(--accent);
+    }
+ 
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+ 
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+ 
+    label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+    label .req {
+      color: var(--accent2);
+      margin-left: 3px;
+    }
+ 
+    select, input[type="date"], textarea, input[type="text"] {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      padding: 12px 16px;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    select:focus, input[type="date"]:focus, textarea:focus, input[type="text"]:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(200,255,0,0.08);
+    }
+    select option { background: #1a1a22; }
+ 
+    /* Custom select arrow */
+    .select-wrap {
+      position: relative;
+    }
+    .select-wrap::after {
+      content: '▾';
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      pointer-events: none;
+      font-size: 14px;
+    }
+ 
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+ 
+    /* Star Rating */
+    .stars {
+      display: flex;
+      gap: 6px;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+    }
+    .stars input[type="radio"] { display: none; }
+    .stars label {
+      font-size: 32px;
+      color: var(--border);
+      cursor: pointer;
+      transition: color 0.15s, transform 0.15s;
+      line-height: 1;
+      padding: 0;
+      margin: 0;
+    }
+    .stars label:hover,
+    .stars label:hover ~ label,
+    .stars input[type="radio"]:checked ~ label {
+      color: var(--accent);
+    }
+    .stars label:hover { transform: scale(1.15); }
+ 
+    /* Checkboxes */
+    .checkbox-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 14px;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .checkbox-item:hover { border-color: var(--accent); }
+    .checkbox-item input[type="checkbox"] { display: none; }
+    .checkbox-item .box {
+      width: 18px; height: 18px;
+      border: 2px solid var(--border);
+      border-radius: 5px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .checkbox-item input[type="checkbox"]:checked + .box {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    .checkbox-item input[type="checkbox"]:checked + .box::after {
+      content: '✓';
+      font-size: 11px;
+      color: #000;
+      font-weight: 700;
+    }
+    .checkbox-item .box-label {
+      font-size: 13px;
+      color: var(--text);
+      font-weight: 400;
+    }
+ 
+    /* Submit button */
+    .btn {
+      background: var(--accent);
+      color: #000;
+      border: none;
+      border-radius: var(--radius);
+      font-family: 'Syne', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 16px 32px;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      margin-top: 4px;
+    }
+    .btn:hover {
+      background: #d4ff1a;
+      box-shadow: 0 0 24px rgba(200,255,0,0.25);
+      transform: translateY(-1px);
+    }
+    .btn:active { transform: translateY(0); }
+ 
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 0 -32px;
+    }
+ 
+    footer {
+      margin-top: 32px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+ 
+    @media (max-width: 480px) {
+      .card { padding: 24px 18px; }
+      .checkbox-grid { grid-template-columns: 1fr; }
+    }

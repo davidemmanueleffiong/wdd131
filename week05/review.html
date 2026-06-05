@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Review</title>
+    <meta name="description" content="This is a product review form for LagosBites, a food discovery blog focused on Lagos, Nigeria.">
+    <meta name="author" content="David Emmanuel">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/review.css">
+    <script src="scripts/review.js" defer></script>
+</head>
+
+<body>
+<div class="wrapper">
+  <div class="badge">✓</div>
+  <h1>Review <span>Submitted!</span></h1>
+  <p class="sub">Thanks for sharing your experience with us.</p>
+ 
+  <div class="card">
+    <h2>Your Submission</h2>
+    <div class="detail"><span class="key">Product</span><span class="val" id="out-product">—</span></div>
+    <div class="detail"><span class="key">Rating</span><span class="val stars-display" id="out-rating">—</span></div>
+    <div class="detail"><span class="key">Install Date</span><span class="val" id="out-date">—</span></div>
+    <div class="detail"><span class="key">Features Noted</span><span class="val" id="out-features">—</span></div>
+    <div class="detail"><span class="key">Review</span><span class="val" id="out-review">—</span></div>
+    <div class="detail"><span class="key">Submitted By</span><span class="val" id="out-name">Anonymous</span></div>
+  </div>
+ 
+  <div class="counter-box">
+    <span class="label">Total Reviews Submitted</span>
+    <span class="count" id="review-count">0</span>
+  </div>
+ 
+  <a href="form.html" class="btn">← Submit Another Review</a>
+</div>
