@@ -315,3 +315,11 @@ textarea:invalid:not(:placeholder-shown) ~ .error-msg {
   font-size: 15px;
   text-align: center;
 }
+
+footer {
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+  margin-top: auto;
+  padding: 20px 0;
+}
