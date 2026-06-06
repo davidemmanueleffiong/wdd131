@@ -1,5 +1,15 @@
+const params = new URLSearchParams(window.location.search);
+
+// Define product names lookup
+const productNames = {
+  'prod1': 'SuperWidget 3000',
+  'prod2': 'MegaGadget Pro',
+  'prod3': 'UltraTool X',
+  // Add more products as needed
+};
+
 const productId = params.get('product');
-  document.getElementById('out-product').textContent = productNames[productId] || productId || '—';
+  document.getElementById('out-product').textContent = productNames[productId] || productId || '-';
  
   const rating = parseInt(params.get('rating'));
   document.getElementById('out-rating').textContent = rating ? '★'.repeat(rating) + '☆'.repeat(5 - rating) : '—';
