@@ -40,6 +40,3 @@ if (!reviewCount) {
 reviewCount++;
 localStorage.setItem("reviewCount", reviewCount);
 document.getElementById("review-count").textContent = reviewCount;
-
-localStorage.removeItem("reviewCount");
-localStorage.removeItem("lastReview");
