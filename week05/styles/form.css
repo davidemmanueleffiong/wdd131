@@ -1,465 +1,317 @@
-    /* Focus-visible polyfill approach — use :focus-visible where supported */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
- 
-    :root {
-      --bg: #0d0d0f;
-      --surface: #16161a;
-      --border: #2a2a35;
-      --accent: #c8ff00;
-      --accent2: #ff6b35;
-      --text: #f0ede8;
-      --muted: #9a9aaa; /* bumped from #7a7a8a → passes 4.5:1 on --surface */
-      --radius: 12px;
-      --focus-ring: 0 0 0 3px rgba(200,255,0,0.55);
-    }
- 
-    /* ─── Reduced-motion: disable decorative animations ─── */
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        transition: none !important;
-        animation: none !important;
-      }
-    }
- 
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px 16px;
-    }
- 
-    /* Decorative background blobs — aria-hidden via pseudo, no semantic impact */
-    body::before {
-      content: '';
-      position: fixed;
-      top: -120px; left: -120px;
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(200,255,0,0.07) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
-    }
-    body::after {
-      content: '';
-      position: fixed;
-      bottom: -100px; right: -100px;
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(255,107,53,0.07) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
-    }
- 
-    .wrapper {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      max-width: 560px;
-    }
- 
-    /* ─── Skip link for keyboard users ─── */
-    .skip-link {
-      position: absolute;
-      top: -999px;
-      left: 16px;
-      background: var(--accent);
-      color: #000;
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 14px;
-      padding: 10px 18px;
-      border-radius: var(--radius);
-      z-index: 9999;
-      text-decoration: none;
-      transition: top 0.1s;
-    }
-    .skip-link:focus {
-      top: 8px;
-    }
- 
-    /* ─── Header ─── */
-    header {
-      margin-bottom: 36px;
-    }
-    header .label {
-      font-family: 'Syne', sans-serif;
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 8px;
-    }
-    header h1 {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(2rem, 6vw, 3rem);
-      font-weight: 800;
-      line-height: 1.05;
-      color: var(--text);
-    }
-    header h1 span {
-      color: var(--accent);
-    }
- 
-    /* ─── Main card ─── */
-    main {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 36px 32px;
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-      width: 100%;
-    }
- 
-    /* ─── Field ─── */
-    .field {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      width: 100%;
-    }
- 
-    label {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--muted);
-      letter-spacing: 0.04em;
-    }
-    label .req {
-      color: var(--accent2);
-      margin-left: 3px;
-      /* Screen readers will read aria-required; hide the asterisk visually only */
-    }
- 
-    /* ─── Inputs ─── */
-    select,
-    input[type="date"],
-    textarea,
-    input[type="text"],
-    input[type="email"] {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      color: var(--text);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 15px;
-      padding: 12px 16px;
-      width: 100%;
-      outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
-      appearance: none;
-      -webkit-appearance: none;
-      /* Minimum touch target: 44px */
-      min-height: 44px;
-    }
- 
-    /* High-visibility focus ring — replaces outline:none loss */
-    select:focus-visible,
-    input[type="date"]:focus-visible,
-    textarea:focus-visible,
-    input[type="text"]:focus-visible,
-    input[type="email"]:focus-visible {
-      border-color: var(--accent);
-      box-shadow: var(--focus-ring);
-    }
-    /* Fallback for browsers that don't support :focus-visible */
-    select:focus,
-    input[type="date"]:focus,
-    textarea:focus,
-    input[type="text"]:focus,
-    input[type="email"]:focus {
-      border-color: var(--accent);
-      box-shadow: var(--focus-ring);
-    }
- 
-    /* Validation states */
-    input:invalid:not(:placeholder-shown),
-    select:invalid:not(:placeholder-shown),
-    textarea:invalid:not(:placeholder-shown) {
-      border-color: var(--accent2);
-    }
- 
-    select option { background: #1a1a22; }
- 
-    /* Custom select arrow */
-    .select-wrap {
-      position: relative;
-    }
-    .select-wrap::after {
-      content: '';
-      position: absolute;
-      right: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 0;
-      height: 0;
-      border-left: 5px solid transparent;
-      border-right: 5px solid transparent;
-      border-top: 6px solid var(--muted);
-      pointer-events: none;
-    }
- 
-    textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
- 
-    /* ─── Star Rating ─── */
-    .stars {
-      display: flex;
-      gap: 6px;
-      flex-direction: row-reverse;
-      justify-content: flex-end;
-    }
-    .stars input[type="radio"] {
-      /* Visually hidden but still keyboard/screen-reader accessible */
-      position: absolute;
-      opacity: 0;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-      clip: rect(0,0,0,0);
-      white-space: nowrap;
-    }
-    .stars label {
-      font-size: 32px;
-      color: var(--border);
-      cursor: pointer;
-      transition: color 0.15s, transform 0.15s;
-      line-height: 1;
-      padding: 4px;
-      margin: 0;
-      /* Minimum 44px touch target */
-      min-width: 44px;
-      min-height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 6px;
-    }
-    /* Keyboard focus on radio → highlight its label */
-    .stars input[type="radio"]:focus-visible + label {
-      outline: 3px solid var(--accent);
-      outline-offset: 2px;
-    }
-    .stars label:hover,
-    .stars label:hover ~ label,
-    .stars input[type="radio"]:checked ~ label {
-      color: var(--accent);
-    }
-    .stars label:hover {
-      transform: scale(1.15);
-    }
- 
-    /* ─── Checkboxes ─── */
-    .checkbox-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-    }
-    .checkbox-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 10px 14px;
-      cursor: pointer;
-      transition: border-color 0.2s, background 0.2s;
-      /* Minimum touch target */
-      min-height: 44px;
-    }
-    .checkbox-item:hover {
-      border-color: var(--accent);
-    }
-    /* Custom checkbox: hide native but keep accessible */
-    .checkbox-item input[type="checkbox"] {
-      position: absolute;
-      opacity: 0;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-      clip: rect(0,0,0,0);
-      white-space: nowrap;
-    }
-    .checkbox-item input[type="checkbox"]:focus-visible ~ .box {
-      outline: 3px solid var(--accent);
-      outline-offset: 2px;
-    }
-    .checkbox-item .box {
-      width: 18px; height: 18px;
-      border: 2px solid var(--border);
-      border-radius: 5px;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      transition: background 0.2s, border-color 0.2s;
-      /* Ensure visible against bg */
-      background: transparent;
-    }
-    .checkbox-item input[type="checkbox"]:checked ~ .box {
-      background: var(--accent);
-      border-color: var(--accent);
-    }
-    .checkbox-item input[type="checkbox"]:checked ~ .box::after {
-      content: '';
-      display: block;
-      width: 5px;
-      height: 9px;
-      border: 2px solid #000;
-      border-top: none;
-      border-left: none;
-      transform: rotate(45deg) translateY(-1px);
-    }
-    .checkbox-item .box-label {
-      font-size: 13px;
-      color: var(--text);
-      font-weight: 400;
-      user-select: none;
-    }
- 
-    /* ─── Submit button ─── */
-    .btn {
-      background: var(--accent);
-      color: #000;
-      border: none;
-      border-radius: var(--radius);
-      font-family: 'Syne', sans-serif;
-      font-size: 15px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      padding: 16px 32px;
-      cursor: pointer;
-      width: 100%;
-      /* Touch target */
-      min-height: 48px;
-      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-      margin-top: 4px;
-    }
-    .btn:hover {
-      background: #d4ff1a;
-      box-shadow: 0 0 24px rgba(200,255,0,0.25);
-      transform: translateY(-1px);
-    }
-    .btn:active {
-      transform: translateY(0);
-    }
-    .btn:focus-visible {
-      outline: 3px solid #fff;
-      outline-offset: 3px;
-      box-shadow: var(--focus-ring);
-    }
- 
-    /* ─── Divider ─── */
-    .divider {
-      height: 1px;
-      background: var(--border);
-      margin: 0 -32px;
-      /* role="separator" in HTML */
-    }
- 
-    /* ─── Error message ─── */
-    .error-msg {
-      font-size: 12px;
-      color: var(--accent2);
-      margin-top: 4px;
-      display: none;
-    }
-    input:invalid:not(:placeholder-shown) ~ .error-msg,
-    textarea:invalid:not(:placeholder-shown) ~ .error-msg {
-      display: block;
-    }
- 
-    /* ─── Success state ─── */
-    .success-banner {
-      display: none;
-      background: rgba(200,255,0,0.08);
-      border: 1px solid var(--accent);
-      border-radius: var(--radius);
-      padding: 16px 20px;
-      color: var(--accent);
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 15px;
-      text-align: center;
-    }
-    .success-banner[aria-live="polite"] { display: block; }
- 
-    /* ─── Footer ─── */
-    footer {
-      margin-top: 32px;
-      text-align: center;
-      font-size: 12px;
-      color: var(--muted);
-    }
-    footer a {
-      color: var(--accent);
-      text-decoration: underline; /* underline for distinguishability */
-      transition: color 0.2s;
-    }
-    footer a:hover {
-      color: #d4ff1a;
-    }
-    footer a:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 2px;
-      border-radius: 3px;
-    }
+/* Focus-visible polyfill approach — use :focus-visible where supported */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    .skip-link {
-    position: absolute;
-    top: -999px;
-    left: 16px;
-    background: var(--accent);
-    color: #000;
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    padding: 10px 18px;
-    border-radius: var(--radius);
-    z-index: 9999;
-    text-decoration: none;
-    transition: top 0.1s;
+:root {
+  --bg: #0d0d0f;
+  --surface: #16161a;
+  --border: #2a2a35;
+  --accent: #c8ff00;
+  --accent2: #ff6b35;
+  --text: #f0ede8;
+  --muted: #9a9aaa;
+  --radius: 12px;
+  --focus-ring: 0 0 0 3px rgba(200,255,0,0.55);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 16px;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -999px;
+  left: 16px;
+  background: var(--accent);
+  color: #000;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 10px 18px;
+  border-radius: var(--radius);
+  z-index: 9999;
+  text-decoration: none;
+  transition: top 0.1s;
 }
 .skip-link:focus {
   top: 8px;
 }
- 
-    /* ─── Responsive ─── */
-    @media screen and (max-width: 480px) {
-      main {
-        padding: 28px 20px;
-      }
-      .divider {
-        margin: 0 -20px;
-      }
-    }
 
+/* Header */
+header {
+  margin-bottom: 36px;
+}
+header .label {
+  font-family: 'Syne', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+header h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 800;
+  line-height: 1.05;
+  color: var(--text);
+}
+header h1 span {
+  color: var(--accent);
+}
 
- 
-    @media screen and (min-width: 500px) {
-      main {
-        width: 100%;
-        max-width: 480px;
-      }
-    }
- 
-    /* ─── Visually hidden utility (for screen readers) ─── */
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
-    }
+/* Main card */
+main {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 100%;
+}
+
+/* Field */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+label .req {
+  color: var(--accent2);
+  margin-left: 3px;
+}
+
+/* Inputs */
+select,
+input[type="date"],
+textarea,
+input[type="text"],
+input[type="email"] {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  padding: 12px 16px;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  appearance: none;
+  min-height: 44px;
+}
+
+select:focus-visible,
+input[type="date"]:focus-visible,
+textarea:focus-visible,
+input[type="text"]:focus-visible,
+input[type="email"]:focus-visible {
+  border-color: var(--accent);
+  box-shadow: var(--focus-ring);
+}
+
+/* Validation states */
+input:invalid:not(:placeholder-shown),
+select:invalid:not(:placeholder-shown),
+textarea:invalid:not(:placeholder-shown) {
+  border-color: var(--accent2);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Star Rating */
+.stars {
+  display: flex;
+  gap: 6px;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+.stars input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.stars label {
+  font-size: 32px;
+  color: var(--border);
+  cursor: pointer;
+  transition: color 0.15s, transform 0.15s;
+  line-height: 1;
+  padding: 4px;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+.stars input[type="radio"]:focus-visible + label {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+.stars label:hover,
+.stars label:hover ~ label,
+.stars input[type="radio"]:checked ~ label {
+  color: var(--accent);
+}
+.stars label:hover {
+  transform: scale(1.15);
+}
+
+/* Checkboxes */
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  min-height: 44px;
+}
+.checkbox-item:hover {
+  border-color: var(--accent);
+}
+.checkbox-item input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.checkbox-item input[type="checkbox"]:focus-visible ~ .box {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+.checkbox-item .box {
+  width: 18px; height: 18px;
+  border: 2px solid var(--border);
+  border-radius: 5px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  background: transparent;
+}
+.checkbox-item input[type="checkbox"]:checked ~ .box {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.checkbox-item input[type="checkbox"]:checked ~ .box::after {
+  content: '';
+  display: block;
+  width: 5px;
+  height: 9px;
+  border: 2px solid #000;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg) translateY(-1px);
+}
+.checkbox-item .box-label {
+  font-size: 13px;
+  color: var(--text);
+  font-weight: 400;
+}
+
+/* Submit button */
+.btn {
+  background: var(--accent);
+  color: #000;
+  border: none;
+  border-radius: var(--radius);
+  font-family: 'Syne', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 16px 32px;
+  cursor: pointer;
+  width: 100%;
+  min-height: 48px;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  margin-top: 4px;
+}
+.btn:hover {
+  background: #d4ff1a;
+  box-shadow: 0 0 24px rgba(200,255,0,0.25);
+  transform: translateY(-1px);
+}
+.btn:active {
+  transform: translateY(0);
+}
+.btn:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+  box-shadow: var(--focus-ring);
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 0 -32px;
+}
+
+/* Error message */
+.error-msg {
+  font-size: 12px;
+  color: var(--accent2);
+  margin-top: 4px;
+  display: none;
+}
+input:invalid:not(:placeholder-shown) ~ .error-msg,
+textarea:invalid:not(:placeholder-shown) ~ .error-msg {
+  display: block;
+}
+
+/* Success banner */
+.success-banner {
+  display: none;
+  background: rgba(200,255,0,0.08);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  color: var(--accent);
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  text-align: center;
+}
