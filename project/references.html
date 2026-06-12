@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="References and citations for resources used in Alex Morgan's portfolio website." />
+  <title>References | Alex Morgan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+    <script src="scripts/main.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="container nav-inner" aria-label="Main navigation">
+      <a href="index.html" class="nav-logo">Alex<span>.</span>dev</a>
+      <ul id="nav-links" class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle color theme">☀️ Light</button>
+        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container references-content">
+        <p class="section-label">Citations</p>
+        <h1 class="section-title">References</h1>
+        <p class="references-intro">
+          The following resources were referenced in the creation of this portfolio website.
+        </p>
+        <ol class="references-list">
+          <li>
+            <p>MDN Web Docs. (2024). <em>HTML: HyperText Markup Language</em>. Mozilla. <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer">https://developer.mozilla.org/en-US/docs/Web/HTML</a></p>
+          </li>
+          <li>
+            <p>MDN Web Docs. (2024). <em>CSS: Cascading Style Sheets</em>. Mozilla. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener noreferrer">https://developer.mozilla.org/en-US/docs/Web/CSS</a></p>
+          </li>
+          <li>
+            <p>MDN Web Docs. (2024). <em>JavaScript reference</em>. Mozilla. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference" target="_blank" rel="noopener noreferrer">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference</a></p>
+          </li>
+          <li>
+            <p>Google Fonts. (2024). <em>Space Grotesk &amp; Inter typefaces</em>. Google LLC. <a href="https://fonts.google.com" target="_blank" rel="noopener noreferrer">https://fonts.google.com</a></p>
+          </li>
+          <li>
+            <p>W3C. (2023). <em>Web Content Accessibility Guidelines (WCAG) 2.2</em>. World Wide Web Consortium. <a href="https://www.w3.org/TR/WCAG22/" target="_blank" rel="noopener noreferrer">https://www.w3.org/TR/WCAG22/</a></p>
+          </li>
+          <li>
+            <p>BYU-Idaho. (2024). <em>WDD131 Course Materials</em>. Brigham Young University – Idaho.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About</a>
+        <a href="references.html">References</a>
+      </nav>
+    </div>
+
+    <p>&copy; <span id="currentYear"></span> David Emmanuel . Nigeria</p> 
+    <p id="lastModified"></p>
+  </footer>
+</body>
+</html>

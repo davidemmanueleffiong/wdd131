@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Alex Morgan's projects — a showcase of HTML, CSS, and JavaScript work built during WDD131 and beyond." />
+  <title>Projects | Alex Morgan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css">
+  <script src="scripts/main.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="container nav-inner" aria-label="Main navigation">
+      <a href="index.html" class="nav-logo">Alex<span>.</span>dev</a>
+      <ul id="nav-links" class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle color theme">☀️ Light</button>
+        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="section section-page-hero" aria-labelledby="page-heading">
+      <div class="container">
+        <p class="section-label">My Work</p>
+        <h1 class="section-title" id="page-heading">Projects</h1>
+        <p class="section-subtitle">
+          Every project here was built from scratch — original design, original code.
+          Filter by category to explore.
+        </p>
+        <div id="filter-bar" class="filter-bar" role="group" aria-label="Filter projects by category">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="javascript">JavaScript</button>
+          <button class="filter-btn" data-filter="html-css">HTML &amp; CSS</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-grid" aria-label="Project cards">
+      <div class="container">
+        <div class="projects-grid" id="projects-grid"></div>
+      </div>
+    </section>
+
+    <section class="section skills-bg" aria-labelledby="cta-heading">
+      <div class="container cta-center">
+        <h2 id="cta-heading">Have a project in mind?</h2>
+        <p>I'm always open to discussing new work, creative ideas, or opportunities to collaborate.</p>
+        <a href="about.html#contact" class="btn btn-primary">Let's Talk</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About</a>
+        <a href="references.html">References</a>
+      </nav>
+    </div>
+
+    <p>&copy; <span id="currentYear"></span> David Emmanuel . Nigeria</p> 
+    <p id="lastModified"></p>
+  </footer>
+</body>
+</html>

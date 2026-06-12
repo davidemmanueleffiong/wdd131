@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="About David Emmanuel — front-end developer, learner, and problem solver. Get in touch via the contact form." />
+  <title>About | David Emmanuel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <script src="scripts/main.js" defer></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="container nav-inner" aria-label="Main navigation">
+      <a href="index.html" class="nav-logo">David<span>.</span>dev</a>
+      <ul id="nav-links" class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle color theme">☀️ Light</button>
+        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="section" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about-grid">
+          <div aria-hidden="true">
+            <div class="about-avatar">👨‍💻</div>
+          </div>
+          <div class="about-text">
+            <p class="section-label">About Me</p>
+            <h1 id="about-heading">I'm David Emmanuel</h1>
+            <p>
+              A front-end developer in training, passionate about building websites
+              that are not just functional, but genuinely delightful to use. I believe
+              great web design starts with clean code and a clear understanding of the
+              user's needs.
+            </p>
+            <p>
+              I'm currently completing WDD131 at BYU-Idaho, where I've developed a strong
+              foundation in semantic HTML, standards-based CSS, and vanilla JavaScript.
+              Every project is an opportunity to go above and beyond the minimum.
+            </p>
+            <p>
+              When I'm not coding, I'm exploring UI design, reading about web performance,
+              or contributing to open-source projects.
+            </p>
+            <div class="stat-row">
+              <div class="stat-item">
+                <strong>6+</strong>
+                <span>Projects built</span>
+              </div>
+              <div class="stat-item">
+                <strong>3</strong>
+                <span>Languages mastered</span>
+              </div>
+              <div class="stat-item">
+                <strong>100%</strong>
+                <span>Original code</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section skills-bg" aria-labelledby="experience-heading">
+      <div class="container">
+        <p class="section-label">My Journey</p>
+        <h2 class="section-title" id="experience-heading">Experience &amp; Education</h2>
+        <div class="timeline-wrapper">
+          <ol class="timeline" aria-label="Education and experience timeline">
+            <li class="timeline-item">
+              <p class="timeline-date">2024 — Present</p>
+              <h3 class="timeline-title">WDD131 — Dynamic Web Fundamentals</h3>
+              <p class="timeline-desc">BYU-Idaho. Deep dive into HTML5, CSS3, and JavaScript. Building responsive, accessible websites to professional standards.</p>
+            </li>
+            <li class="timeline-item">
+              <p class="timeline-date">2025</p>
+              <h3 class="timeline-title">WDD130 — Web Fundamentals</h3>
+              <p class="timeline-desc">Learned the foundations of web design — layout, typography, color theory, and basic HTML/CSS.</p>
+            </li>
+            <li class="timeline-item">
+              <p class="timeline-date">2024</p>
+              <h3 class="timeline-title">First Line of Code</h3>
+              <p class="timeline-desc">Self-taught introduction to HTML and CSS through freeCodeCamp. Built my first static webpage and never looked back.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-bg" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="contact-grid">
+
+          <div class="contact-info">
+            <p class="section-label">Get In Touch</p>
+            <h2 id="contact-heading">Let's Work Together</h2>
+            <p>Whether you have a project, a question, or just want to say hi — my inbox is always open.</p>
+            <address class="contact-address">
+              <div class="contact-detail">
+                <div class="contact-detail-icon" aria-hidden="true">📧</div>
+                <span>davidemmanueleffiong8@gmail.com</span>
+              </div>
+              <div class="contact-detail">
+                <div class="contact-detail-icon" aria-hidden="true">📍</div>
+                <span>Rexburg, ID — Open to remote</span>
+              </div>
+              <div class="contact-detail">
+                <div class="contact-detail-icon" aria-hidden="true">💼</div>
+                <a href="https://github.com/davidemmanueleffiong" target="_blank" rel="noopener noreferrer">github.com/davidemmanueleffiong</a>
+              </div>
+            </address>
+          </div>
+
+          <div class="form-card">
+            <form id="contact-form" novalidate aria-label="Contact form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="name">Full Name <span aria-hidden="true">*</span></label>
+                  <input class="form-input" type="text" id="name" name="name" placeholder="Jane Smith" required autocomplete="name" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="email">Email Address <span aria-hidden="true">*</span></label>
+                  <input class="form-input" type="email" id="email" name="email" placeholder="jane@example.com" required autocomplete="email" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="subject">Subject</label>
+                <select class="form-select" id="subject" name="subject">
+                  <option value="general">General Inquiry</option>
+                  <option value="project">Project Collaboration</option>
+                  <option value="job">Job Opportunity</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="message">Message <span aria-hidden="true">*</span></label>
+                <textarea class="form-textarea" id="message" name="message" placeholder="Tell me about your project or question..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-submit">Send Message ✉️</button>
+              <div id="form-msg" class="form-msg" role="alert" aria-live="polite"></div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About</a>
+        <a href="references.html">References</a>
+      </nav>
+    </div>
+
+    <p>&copy; <span id="currentYear"></span> David Emmanuel . Nigeria</p> 
+    <p id="lastModified"></p>
+  </footer>
+
+  <p>&copy; <span id="currentYear"></span> David Emmanuel . Nigeria</p> 
+  <p id="lastModified"></p>
+</body>
+</html>

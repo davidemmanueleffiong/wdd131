@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="David Emmanuel — Front-End Developer portfolio. Building clean, responsive, and accessible web experiences." />
+  <title>David Emmanuel | Front-End Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <script src="scripts/main.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="container nav-inner" aria-label="Main navigation">
+      <a href="index.html" class="nav-logo">David<span>.</span>dev</a>
+      <ul id="nav-links" class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle color theme">☀️ Light</button>
+        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="container">
+        <p class="hero-eyebrow">Available for projects</p>
+        <h1 class="hero-heading" id="hero-heading">
+          Hi, I'm David —<br>
+          <span class="highlight">Front-End Developer</span>
+        </h1>
+        <p class="hero-desc">
+          I craft fast, accessible, and visually striking websites using
+          HTML, CSS, and JavaScript. From concept to code, I build digital
+          experiences that make an impression.
+        </p>
+        <div class="hero-cta">
+          <a href="projects.html" class="btn btn-primary">View My Work</a>
+          <a href="about.html#contact" class="btn btn-outline">Get In Touch</a>
+        </div>
+        <p id="visit-count" class="visit-count"></p>
+      </div>
+    </section>
+
+    <section class="section skills-bg" aria-labelledby="skills-heading">
+      <div class="container">
+        <p class="section-label">What I Do</p>
+        <h2 class="section-title" id="skills-heading">Core Skills</h2>
+        <p class="section-subtitle">Technologies and practices I use to build modern, standards-compliant websites.</p>
+        <div class="skills-grid">
+          <article class="card skill-card">
+            <div class="skill-card-icon">🧱</div>
+            <h3>HTML</h3>
+            <p>Semantic, accessible, and valid markup following W3C standards.</p>
+            <div class="skill-tags">
+              <span class="tag">Semantic</span>
+              <span class="tag">Accessibility</span>
+              <span class="tag">Forms</span>
+            </div>
+          </article>
+          <article class="card skill-card">
+            <div class="skill-card-icon">🎨</div>
+            <h3>CSS</h3>
+            <p>External, DRY stylesheets with custom properties, Grid, and Flexbox.</p>
+            <div class="skill-tags">
+              <span class="tag">Grid</span>
+              <span class="tag">Flexbox</span>
+              <span class="tag">Responsive</span>
+            </div>
+          </article>
+          <article class="card skill-card">
+            <div class="skill-card-icon">⚡</div>
+            <h3>JavaScript</h3>
+            <p>DOM interaction, event handling, localStorage, and modular functions.</p>
+            <div class="skill-tags">
+              <span class="tag">DOM</span>
+              <span class="tag">Events</span>
+              <span class="tag">localStorage</span>
+            </div>
+          </article>
+          <article class="card skill-card">
+            <div class="skill-card-icon">📱</div>
+            <h3>Responsive Design</h3>
+            <p>Mobile-first layouts that look great on any screen size.</p>
+            <div class="skill-tags">
+              <span class="tag">Mobile-first</span>
+              <span class="tag">PARC</span>
+              <span class="tag">UX</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="featured-heading">
+      <div class="container">
+        <p class="section-label">Recent Work</p>
+        <h2 class="section-title" id="featured-heading">Featured Projects</h2>
+        <p class="section-subtitle">A selection of projects I've built to sharpen my skills and solve real problems.</p>
+        <div class="projects-grid" id="projects-grid"></div>
+        <div class="featured-cta">
+          <a href="projects.html" class="btn btn-outline">See All Projects →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About</a>
+        <a href="references.html">References</a>
+      </nav>
+    </div>
+
+    <p>&copy; <span id="currentYear"></span> David Emmanuel . Nigeria</p> 
+    <p id="lastModified"></p>
+  </footer>
+
+  <p>&copy; <span id="currentYear"></span> David Emmanuel . Nigeria</p> 
+  <p id="lastModified"></p>
+</body>
+</html>
