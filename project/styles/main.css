@@ -595,6 +595,10 @@ p { color: var(--text-secondary); }
   color: var(--text-muted);
 }
 
+footer p{
+  font-size: 0.8rem;
+}
+
 /* ── About Page ─────────────────────────────────────────────── */
 .about-grid {
   display: grid;
